@@ -1,0 +1,434 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Open+Sans&display=swap')
+
+
+/*
+ * Stylus color variables
+ */
+
+color-white = #fff
+color-crayola = #53a665
+color-black-bean = #333
+color-black = #000
+
+
+/*
+ * Default styles
+ */
+
+body
+  background-color #f7f7f7
+  font-family 'Open Sans', sans-serif
+  color color-black-bean
+
+h1, h2, h3, h4, h5, h6
+  font-family 'Bree Serif', serif
+
+a
+  text-decoration none
+
+.texture
+  &:after
+    content ""
+    position absolute
+    display block
+    width 100%
+    height 100%
+    top 0
+    left 0
+    opacity .2
+    background-image linear-gradient(45deg, #dfdfdf 10%, rgba(255, 255, 255, 0) 10%, rgba(255, 255, 255, 0) 50%, #dfdfdf 50%, #dfdfdf 60%, rgba(255, 255, 255, 0) 60%, rgba(255, 255, 255, 0) 100%)
+    background-size 7.07px 7.07px
+
+.position-relative
+  position relative
+  z-index 5
+
+.link
+  background-color color-crayola
+  color color-white
+  font-family 'Open Sans', sans-serif
+  font-size 16px
+  line-height 1.1
+  padding 0.1rem 0.2rem
+
+  &:hover
+    color color-white
+    background-color color-black-bean
+
+  &:after
+    content "»"
+    padding-left .2rem
+
+  &_float
+    position absolute
+    bottom 0
+    right -.5rem
+
+.container
+  max-width calc(940px + 2rem)
+  margin 0 auto
+  padding-right 1rem
+  padding-left 1rem
+
+.text-marked
+  color color-crayola
+  text-decoration underline
+
+.text-highlighted
+  background-color color-white
+
+
+/*
+ * HEADER
+ */
+
+.logo
+  &__link
+    display flex
+    color color-black
+    font-family 'Bree Serif', serif
+    font-size 30px
+    line-height 1
+    text-transform uppercase
+
+    &:hover
+      color inherit
+
+  &__star
+    font-size 30px
+    color color-crayola
+
+  &__dash
+    color color-crayola
+    font-family 'Open Sans', sans-serif
+    font-size 28px
+    margin-left -0.2rem
+    margin-top 0.1rem
+
+.header
+  max-width calc(948px + 2rem)
+  margin 0 auto
+  padding 1rem 1rem 1.4rem
+  display flex
+  align-items center
+  justify-content space-between
+
+.header-wrapper
+  background-color color-white
+
+.nav
+  display flex
+  align-items center
+  list-style none
+  margin-bottom 0
+  padding-left 0
+
+  &_mobile
+    display none
+
+  &_desktop
+    display block
+
+  &__list
+    &:not(:last-child)
+      &:after
+        content "/"
+        color color-black-bean
+        font-family 'Bree Serif', serif
+
+  &__link
+    font-family 'Bree Serif', serif
+    color color-black-bean
+    font-size 16px
+    padding .5rem
+
+    &:hover
+      color color-crayola
+
+    &_active
+      color color-crayola
+      position relative
+
+      &:after
+        content ""
+        position absolute
+        bottom 0
+        left 50%
+        transform translateX(-50%)
+        width 0
+        height 0
+        border-left 7px solid transparent
+        border-right 7px solid transparent
+        border-top 5px solid color-crayola
+
+
+/*
+* MAIN CONTENT
+*/
+
+.section-post
+  background-image linear-gradient(0deg, #f7f7f7 25%, #333333 25%, #333333 50%, #f7f7f7 50%, #f7f7f7 75%, #333333 75%, #333333 100%)
+  background-size 320px 320px
+  margin-top 1.7rem
+
+.block-post-wrapper
+  display flex
+  justify-content space-between
+  align-items center
+  padding-top 1.5rem
+  padding-bottom 2.2rem
+
+.block-post
+  max-width 372px
+  position relative
+
+  &__title
+    color color-crayola
+    font-size 24px
+    font-weight 400
+    line-height 1
+    margin-bottom .7rem
+
+    mark
+      margin-bottom 0.4rem
+      padding 0 .2rem
+      display inline-block
+
+.block-video
+  width 462px
+  height 286px
+  max-width 100%
+
+  &__video
+    width inherit
+    height inherit
+    max-width 100%
+
+.block-pro-wrapper
+  display grid
+  grid-template-columns repeat(3, 1fr)
+  padding 3.3rem 1rem 2.9rem 1rem
+  max-width 1000px
+  margin 0 auto
+
+.block-pro
+  display flex
+  flex-direction column
+  justify-content center
+  align-items center
+
+  &__icon
+    height 30px
+    width 30px
+    text-align center
+    margin-bottom .7rem
+
+  &__title
+    font-size 24px
+    font-weight 400
+    line-height 21px
+    margin-bottom .3rem
+
+    span
+      color color-crayola
+
+  &__text
+    text-align center
+    margin-bottom .4rem
+
+
+/*
+ * FOOTER
+ */
+
+.footer
+  max-width 940px
+  margin 0 auto
+  padding-right .3rem
+  padding-top .4rem
+  display flex
+  justify-content space-between
+  box-shadow 0 -1px 0 #cccccc
+
+.block-social
+  &__link
+    text-decoration none
+    display inline-block
+
+    &:not(:last-child)
+      margin-right .5rem
+
+    &:hover
+      .block-social__icon
+        path
+          fill color-crayola
+
+.copyright
+  color #808080
+  font-family Verdana
+  font-size 10px
+
+
+/*
+ * MEDIA QUERIES
+ */
+
+@media (max-width: 900px)
+  .header
+    flex-direction column
+
+  .logo
+    margin-bottom .2rem
+
+  .container
+    max-width calc(460px + 2rem)
+
+  .section-post
+    margin-top 2.8rem
+
+  .block-post
+    margin-top 1.4rem
+    max-width 100%
+
+    &__text
+      margin-bottom 1.5rem
+
+  .block-video
+    position relative
+    overflow hidden
+    width 100%
+    height auto
+    padding-top 56.25%
+
+    &__video
+      position absolute
+      top 0
+      left 0
+      bottom 0
+      right 0
+      width 100%
+      height 100%
+
+  .block-post-wrapper
+    flex-direction column
+    padding-top 0
+    padding-bottom 1rem
+
+  .block-video
+    order -1
+
+  .block-pro-wrapper
+    grid-template-columns 1fr
+
+  .block-pro
+    &__text
+      max-width 408px
+      margin-bottom .8rem
+
+    &:not(:last-child)
+      margin-bottom 2.8rem
+
+  .footer
+    max-width 460px
+    justify-content center
+    padding-left 1rem
+    padding-right 1rem
+
+  .copyright
+    display none
+
+
+@media (max-width: 500px)
+  .header
+    align-items initial
+    padding 0
+
+  .header-wrapper
+    background-color unset
+
+  .logo
+    max-width 100%
+    width calc(280px + 2rem)
+    margin 0 auto
+    padding .2rem 1rem .3rem
+
+    &__link
+      font-size 22px
+
+    &__star
+      font-size 22px
+
+    &__dash
+      font-size 21px
+
+  .logo-wrapper
+    margin-bottom 1.4rem
+    background-color color-white
+
+  .container
+    max-width calc(280px + 2rem)
+
+  .block-pro
+    &__icon
+      margin-bottom 0
+
+    &__title
+      font-size 21px
+      margin-bottom 1.4rem
+
+    &__text
+      max-width 280px
+      font-size 14px
+
+  .section-post
+    background unset
+    margin-top 1rem
+
+  .block-post
+    margin-top .7rem
+
+    &__title
+      font-size 16px
+      color color-black-bean
+      margin-bottom .9rem
+
+    &__text
+      font-size 14px
+
+  .nav
+    flex-direction column
+    align-items flex-start
+
+    &_mobile
+      display block
+      max-width 100%
+      width calc(280px + 2rem)
+      margin 0 auto
+      padding 0 1rem
+
+    &_desktop
+      display none
+
+    &__list
+      width 100%
+
+      &:not(:last-child)
+        &:after
+          content none
+
+    &__link
+      display flex
+      border-bottom 3px solid color-black-bean
+      padding .3rem 0
+
+      &:hover
+        border-bottom 3px solid color-crayola
+
+      &_active
+        border-bottom 3px solid color-crayola
+
+        &:after
+          content none
+
+  .footer
+    max-width 280px
